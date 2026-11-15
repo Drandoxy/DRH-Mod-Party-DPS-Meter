@@ -5,7 +5,7 @@ Ranks party members by total enemy damage and shows each player's damage share a
 
 Drag the meter to move it or drag a bottom corner to resize it. The mod saves its layout. **Enable DPS meter** in Settings turns tracking and display on or off. Turning it off clears the current totals. Tracking resumes from zero when enabled again.
 
-Dungeon Minimap is optional and uses matching player colors.
+[Dungeon Minimap](https://github.com/Drandoxy/DRH-Mod-Dungeon-Minimap) is optional and uses matching player colors.
 <!-- /drh:show -->
 
 ## Preview
