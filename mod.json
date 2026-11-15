@@ -2,7 +2,7 @@
   "id": "party_dps_meter",
   "name": "Party DPS Meter",
   "description": "Shows ranked party damage, percentage of total damage, and DPS.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Drandox",
   "api": "1.4.0",
   "entry": "Main",
