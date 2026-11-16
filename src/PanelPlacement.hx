@@ -4,6 +4,7 @@ import mods.api.Context;
 
 /** Panel layout is UI state, stored separately from gameplay settings. */
 class PanelPlacement {
+    public var enabled = true;
     public var hasPosition = false;
     public var left = 0.;
     public var top = 0.;
@@ -24,6 +25,7 @@ class PanelPlacement {
             top = number(data.top, 0, 0, 100000);
             scale = number(data.scale, 1, 0.55, 2.5);
             zoom = number(data.zoom, 1, 1, 3);
+            enabled = data.enabled != false;
             hasPosition = data.hasPosition == true;
         } catch (error:Dynamic) {
             context.log("Could not load panel layout: " + Std.string(error));
@@ -41,7 +43,7 @@ class PanelPlacement {
         if (path == null) return;
         try {
             sys.io.File.saveContent(path, haxe.Json.stringify({
-                hasPosition: hasPosition, left: left, top: top, scale: scale, zoom: zoom
+                enabled: enabled, hasPosition: hasPosition, left: left, top: top, scale: scale, zoom: zoom
             }));
         } catch (error:Dynamic) {
             ctx.log("Could not save panel layout: " + Std.string(error));

@@ -51,11 +51,9 @@ class PartyDamage extends Sprite {
     var nextVisibilityCheck = 0;
     var waitingRenderers = ["mStartRenderer", "mKillSwitchRenderer", "mVictoryRenderer", "mDefeatRenderer"];
 
-	public function new(context:Context) {
+	public function new(context:Context, placement:PanelPlacement) {
 		super();
 		this.context = context;
-		var placement = new PanelPlacement();
-		placement.load(context, "dps");
 		controls = new PanelControls(this, context, placement,
 			WIDTH, 53, 362);
 
@@ -232,7 +230,12 @@ class PartyDamage extends Sprite {
 
     function dungeonFloor():DistributedDungeonFloor {
         var floor = context.state.floor;
-        return floor == null ? null : @:privateAccess floor.floor;
+        if (floor == null) return null;
+        var facade = context.core.facade;
+        if (facade == null) return null;
+        var objects = facade.gameObjectManager;
+        if (objects == null) return null;
+        return Std.downcast(objects.getReferenceFromId(floor.id), DistributedDungeonFloor);
     }
 
     function canShow():Bool {
