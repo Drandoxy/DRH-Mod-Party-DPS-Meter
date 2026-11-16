@@ -10,7 +10,7 @@ class Main extends Mod {
 
     override public function init(context:Context):Void {
         placement.load(context, "dps");
-        context.keys.action("toggleDpsChord", "Toggle party DPS meter", "Enable or disable party damage tracking.", Keyboard.D, true, true)
+        context.keys.action("toggleDpsMeter", "Toggle DPS Meter", "Enable or disable party damage tracking.", Keyboard.U, true, true)
             .onPress(function() {
                 placement.enabled = !placement.enabled;
                 placement.save();
